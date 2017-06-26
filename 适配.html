@@ -1,0 +1,31 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<title>适配</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<style>
+		html,body{margin: 0;padding: 0;}
+		.head{width: 7.5rem;height: 1rem;background: red;}
+		body{font-size: .28rem;}
+	</style>
+	</head>
+	<body>
+		<div class="head">
+			呵呵
+		</div>
+		<script>
+			(function(doc, win){
+			    var docE1 = doc.documentElement,
+			        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+			        recalc = function(){
+			            var clientWidth = docE1.clientWidth;
+			            if(!clientWidth) return;
+			            docE1.style.fontSize = 100*(clientWidth/750) + 'px';            
+			        };
+				    if (!doc.addEventListener) return;
+					    win.addEventListener(resizeEvt,recalc,false);
+					    doc.addEventListener('DOMContentLoaded',recalc,false);
+			})(document,window);
+		</script>
+	</body>
+</html>
